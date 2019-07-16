@@ -3,7 +3,7 @@ package com.caidapao.today.common.pojo;
 /**
  * Created by caidapao on 2019/7/14
  * Time 12:40
- * address http://today.caidapao.com
+ * address https://today.caidapao.com
  */
 public class TodayResp {
 

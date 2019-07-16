@@ -5,6 +5,7 @@ import com.wf.captcha.Captcha;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,25 +13,26 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Created by caidapao on 2019/7/14
  * Time 11:36
- * address http://today.caidapao.com
+ * address https://today.caidapao.com
  */
 @Controller
 @RequestMapping
 public class LoginController {
 
-    @RequestMapping("/login")
+
+    @GetMapping(value = "/login")
     public String login() {
         System.out.println("login");
         return "views/login";
     }
 
-    @RequestMapping("/index")
+    @GetMapping("/index")
     public String index() {
         System.out.println("index");
         return "views/index";
     }
 
-    @RequestMapping("/layout")
+    @GetMapping("/layout")
     public String layout() {
         System.out.println("layout");
         return "views/layout";

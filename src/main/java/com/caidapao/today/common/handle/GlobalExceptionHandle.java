@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * Created by caidapao on 2019/7/14
  * Time 12:39
- * address http://today.caidapao.com
+ * address https://today.caidapao.com
  */
 @ControllerAdvice
 public class GlobalExceptionHandle {

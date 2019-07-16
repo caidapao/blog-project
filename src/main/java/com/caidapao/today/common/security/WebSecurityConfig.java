@@ -11,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 /**
  * Created by caidapao on 2019/7/14
  * Time 9:40
- * address http://today.caidapao.com
+ * address https://today.caidapao.com
  */
 @Configuration
 @EnableWebSecurity

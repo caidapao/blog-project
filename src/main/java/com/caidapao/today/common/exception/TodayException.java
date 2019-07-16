@@ -5,7 +5,7 @@ import com.caidapao.today.common.pojo.ErrorCode;
 /**
  * Created by caidapao on 2019/7/14
  * Time 12:38
- * address http://today.caidapao.com
+ * address https://today.caidapao.com
  */
 public class TodayException extends RuntimeException{
     private String code;
