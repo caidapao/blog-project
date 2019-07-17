@@ -15,6 +15,10 @@ public class TodayResp {
 
     private Object data;
 
+    public TodayResp(boolean isSuccess) {
+        this.isSuccess = isSuccess;
+    }
+
     public boolean isSuccess() {
         return isSuccess;
     }

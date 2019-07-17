@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class GlobalExceptionHandle {
 
     /**
-     * 当抛出MyException时，会被此方法拦截。直接返回RespJson
+     * 当抛出TodayException时，会被此方法拦截。直接返回TodayResp
      * @param e 异常对象
      */
     @ExceptionHandler(value = TodayException.class)
     @ResponseBody
     public TodayResp handleMyException(TodayException e){
-        TodayResp respJson = new TodayResp();
-        respJson.setCode(e.getCode());
-        respJson.setMsg(e.getErrorMsg());
-        return respJson;
+        TodayResp todayResp = new TodayResp(false);
+        todayResp.setCode(e.getCode());
+        todayResp.setMsg(e.getErrorMsg());
+        return todayResp;
     }
 }

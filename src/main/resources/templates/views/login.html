@@ -22,11 +22,11 @@
                 </div>
                 <div class="layui-col-xs12 layui-col-lg4 layui-col-lg-offset4" id="login-div">
                     <div class="layui-form" lay-filter="login-form">
-                        <div class="layui-anim layui-anim-upbit">
+                        <div class="layui-anim layui-anim-upbit" >
                             <ul class="login-type-tab">
                                 <li class="active">系统登录</li>
                             </ul>
-                            <div class="normal-login-form">
+                            <form class="normal-login-form"  action="/login" type="post">
                                 <div class="layui-form-item">
                                     <label class="layui-icon label-icon layui-icon-username"></label>
                                     <input type="text" name="username" lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
@@ -50,12 +50,12 @@
                                     <input type="checkbox" name="rememberMe" title="记住我" lay-skin="primary">
                                 </div>
                                 <div class="layui-form-item">
-                                    <button class="layui-btn layui-btn-normal layui-btn-fluid" lay-submit lay-filter="login-submit" id="login">
+                                    <button class="layui-btn layui-btn-normal layui-btn-fluid" lay-submit lay-filter="login-submit" type="submit"  id="login">
                                         <i style="display: none" class="layui-icon layui-icon-loading layui-icon layui-anim layui-anim-rotate layui-anim-loop"></i>
                                         立即登录
                                     </button>
                                 </div>
-                            </div>
+                            </form>
 <!--                            <div class="layui-form-item febs-tr">-->
 <!--                                <a id="regist-href">注册账号</a>-->
 <!--                            </div>-->
@@ -128,13 +128,13 @@
                 if (loading.is(":visible")) return;
                 loading.show();
                 $.post(ctx + 'sign/in', data.field, function (r) {
-                    if (r.code === 200) {
+                    if (r.success) {
                         location.href = ctx + 'index';
                     } else {
-                        layer.msg(r.message);
-                        loading.hide();
+                        layer.msg(r.msg);
                         initCode();
                     }
+                    loading.hide();
                 });
                 return false;
             });
