@@ -51,8 +51,7 @@
                                 </div>
                                 <div class="layui-form-item">
                                     <button class="layui-btn layui-btn-normal layui-btn-fluid" lay-submit lay-filter="login-submit" id="login">
-                                        <i style="display: none"
-                                           class="layui-icon layui-icon-loading layui-icon layui-anim layui-anim-rotate layui-anim-loop"></i>
+                                        <i style="display: none" class="layui-icon layui-icon-loading layui-icon layui-anim layui-anim-rotate layui-anim-loop"></i>
                                         立即登录
                                     </button>
                                 </div>
@@ -128,7 +127,7 @@
                 var loading = $(this).find('.layui-icon');
                 if (loading.is(":visible")) return;
                 loading.show();
-                $.post(ctx + '/login', data.field, function (r) {
+                $.post(ctx + 'sign/in', data.field, function (r) {
                     if (r.code === 200) {
                         location.href = ctx + 'index';
                     } else {

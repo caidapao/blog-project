@@ -19,7 +19,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        String[] matchers = {"/","/login", "/blog/**","/images/captcha/**"};
+        String[] matchers = {"/","/login","/sign/in","/sign/up", "/blog/**","/images/captcha/**"};
         http.authorizeRequests()
                     .antMatchers(matchers).permitAll()
                     .anyRequest().authenticated()
@@ -34,8 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("caidapao").password("123456").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("caidapao").password("123456").roles("ADMIN");
     }
 
     @Override
