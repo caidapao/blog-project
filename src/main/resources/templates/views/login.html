@@ -26,7 +26,7 @@
                             <ul class="login-type-tab">
                                 <li class="active">系统登录</li>
                             </ul>
-                            <form class="normal-login-form"  action="/login" type="post">
+                            <form class="normal-login-form"   action="/form/login" method="post" >
                                 <div class="layui-form-item">
                                     <label class="layui-icon label-icon layui-icon-username"></label>
                                     <input type="text" name="username" lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
@@ -42,7 +42,7 @@
                                             <input type="text" maxlength="4" name="verifyCode" lay-verify="required" placeholder="验证码" class="layui-input" autocomplete="off">
                                         </div>
                                         <div class="layui-col-xs5">
-                                            <img class="codeimg" id="codeimg"/>
+                                            <img class="codeimg" id="codeimg" data-th-src="@{/images/captcha}"/>
                                         </div>
                                     </div>
                                 </div>
@@ -122,22 +122,22 @@
             form.render();
             initCode();
 
-            //提交登录表单
-            form.on('submit(login-submit)', function (data) {
-                var loading = $(this).find('.layui-icon');
-                if (loading.is(":visible")) return;
-                loading.show();
-                $.post(ctx + 'sign/in', data.field, function (r) {
-                    if (r.success) {
-                        location.href = ctx + 'index';
-                    } else {
-                        layer.msg(r.msg);
-                        initCode();
-                    }
-                    loading.hide();
-                });
-                return false;
-            });
+            // //提交登录表单
+            // form.on('submit(login-submit)', function (data) {
+            //     var loading = $(this).find('.layui-icon');
+            //     if (loading.is(":visible")) return;
+            //     loading.show();
+            //     $.post(ctx + 'form/login', data.field, function (r) {
+            //         if (r.success) {
+            //             location.href = ctx + 'index';
+            //         } else {
+            //             layer.msg(r.msg);
+            //             initCode();
+            //         }
+            //         loading.hide();
+            //     });
+            //     return false;
+            // });
 
             //提交注册表单
             form.on('submit(regist-submit)', function (data) {
@@ -162,7 +162,7 @@
             });
 
             function initCode() {
-                $view.find('#codeimg').attr("src", ctx + "images/captcha?data=" + new Date().getTime());
+                // $view.find('#codeimg').attr("src", ctx + "images/captcha?data=" + new Date().getTime());
             }
 
             $view.find('#codeimg').on('click', function () {

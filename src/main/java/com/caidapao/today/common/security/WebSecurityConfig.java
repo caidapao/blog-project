@@ -1,6 +1,5 @@
 package com.caidapao.today.common.security;
 
-import com.caidapao.today.common.service.TodayUserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,6 +9,10 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+
+import javax.sql.DataSource;
 
 /**
  * Created by caidapao on 2019/7/14
@@ -25,13 +28,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private TodayUserDetailService todayUserDetailService;
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        String[] matchers = {"/","/login","/sign/in","/sign/up", "/blog/**","/images/captcha/**"};
-
+        String[] matchers = {"/","/login", "/blog/**","/images/captcha/**"};
         http.formLogin() //  定义当需要用户登录时候，转到的登录页面。
                     .loginPage("/login") // 设置登录页面
-//                    .loginProcessingUrl("/sign/in")
+                    .loginProcessingUrl("/form/login")
                     .successForwardUrl("/index")
                     .and()
                 .authorizeRequests() // 定义哪些URL需要被保护、哪些不需要被保护
@@ -45,15 +48,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(todayUserDetailService);
-        auth.authenticationProvider(todayCustomAuthenticationProvider);
+        auth.userDetailsService(todayUserDetailService).passwordEncoder(passwordEncoder());
+
     }
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().passwordEncoder(passwordEncoder())
-                .withUser("caidapao").password(passwordEncoder().encode("666666")).roles("USER");
-    }
+//    @Autowired
+//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.inMemoryAuthentication().passwordEncoder(passwordEncoder())
+//                .withUser("caidapao").password(passwordEncoder().encode("123456")).roles("USER");
+//    }
 
     @Override
     public void configure(WebSecurity web) {
@@ -63,6 +66,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder(4);
+        return new BCryptPasswordEncoder(4){
+            @Override
+            public String encode(CharSequence rawPassword) {
+                return rawPassword.toString();
+            }
+
+            @Override
+            public boolean matches(CharSequence rawPassword, String encodedPassword) {
+                return encodedPassword.equals(rawPassword.toString());
+            }
+        };
     }
 }

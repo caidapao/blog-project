@@ -1,22 +1,13 @@
 package com.caidapao.today.system.controller;
 
-import com.caidapao.today.common.exception.TodayException;
-import com.caidapao.today.common.pojo.ErrorCode;
-import com.caidapao.today.common.pojo.TodayConstant;
-import com.caidapao.today.common.pojo.TodayResp;
 import com.caidapao.today.common.util.CaptchaUtil;
 import com.wf.captcha.Captcha;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.validation.constraints.NotBlank;
 
 /**
  * Created by caidapao on 2019/7/14
@@ -48,14 +39,6 @@ public class LoginController {
         CaptchaUtil.outPng(110, 34, 4, Captcha.TYPE_ONLY_NUMBER, request, response);
     }
 
-//    @PostMapping("/sign/in")
-//    @ResponseBody
-//    public Object login(@NotBlank String username, @NotBlank String password, @NotBlank String verifyCode, HttpServletRequest request) {
-//        if (!CaptchaUtil.verify(verifyCode, request)) {
-//            throw new TodayException(ErrorCode.WRONG_VERIFY_CODE);
-//        }
-//        return new TodayResp(true);
-//    }
 
 
 }
