@@ -24,10 +24,10 @@ public class TodayUserDetailService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Collection<GrantedAuthority> authorities = new ArrayList<>();
+        //TODO:caidapao 改从db获取
         if (StringUtils.isEmpty(username)) {
             return null;
         }
-        //TODO:caidapao
         TodayUser todayUser = new TodayUser(username, "123456", authorities);
         todayUser.setSex("MALE");
         return todayUser;
