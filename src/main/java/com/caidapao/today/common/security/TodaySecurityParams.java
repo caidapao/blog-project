@@ -3,6 +3,7 @@ package com.caidapao.today.common.security;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
+ * 登录相关的url
  * Created by caidapao on 2019/7/18
  * Time 22:22
  * address https://today.caidapao.com

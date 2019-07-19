@@ -1,9 +1,7 @@
 package com.caidapao.today.common.security;
 
 import com.caidapao.today.system.entity.TodayUser;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -14,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
+ * 登录成功后，从数据库load详细的用户信息
  * Created by caidapao on 2019-7-17
  * Time 16:40
  * address https://today.caidapao.com
@@ -28,6 +27,7 @@ public class TodayUserDetailService implements UserDetailsService {
         if (StringUtils.isEmpty(username)) {
             return null;
         }
+        //TODO:caidapao
         TodayUser todayUser = new TodayUser(username, "123456", authorities);
         todayUser.setSex("MALE");
         return todayUser;

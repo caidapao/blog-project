@@ -26,7 +26,7 @@
                             <ul class="login-type-tab">
                                 <li class="active">系统登录</li>
                             </ul>
-                            <form class="normal-login-form"   action="/form/login" method="post" >
+                            <form class="normal-login-form"   action="#" method="post" onsubmit="return false">
                                 <div class="layui-form-item">
                                     <label class="layui-icon label-icon layui-icon-username"></label>
                                     <input type="text" name="username" lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
@@ -122,44 +122,47 @@
             form.render();
             initCode();
 
-            // //提交登录表单
-            // form.on('submit(login-submit)', function (data) {
-            //     var loading = $(this).find('.layui-icon');
-            //     if (loading.is(":visible")) return;
-            //     loading.show();
-            //     $.post(ctx + 'form/login', data.field, function (r) {
-            //         if (r.success) {
-            //             location.href = ctx + 'index';
-            //         } else {
-            //             layer.msg(r.msg);
-            //             initCode();
-            //         }
-            //         loading.hide();
-            //     });
-            //     return false;
-            // });
-
-            //提交注册表单
-            form.on('submit(regist-submit)', function (data) {
-                if (data.field.password !== data.field.passwordB) {
-                    layer.msg('两次密码输入不一致！');
-                    return;
-                }
+            //提交登录表单
+            form.on('submit(login-submit)', function (data) {
                 var loading = $(this).find('.layui-icon');
                 if (loading.is(":visible")) return;
                 loading.show();
-                $.post(ctx + 'regist', data.field, function (r) {
-                    if (r.code === 200) {
-                        layer.msg('注册成功，请登录');
-                        loading.hide();
-                        $view.find('#login-href').trigger('click');
+
+                $.post(ctx + 'login/action', data.field, function (r) {
+                    if (r.success) {
+                        location.href = ctx + 'index';
                     } else {
-                        layer.msg(r.message);
-                        loading.hide();
+                        layer.msg(r.msg);
+                        initCode();
                     }
+                    loading.hide();
                 });
+
+
                 return false;
             });
+
+            //提交注册表单
+            // form.on('submit(regist-submit)', function (data) {
+            //     if (data.field.password !== data.field.passwordB) {
+            //         layer.msg('两次密码输入不一致！');
+            //         return;
+            //     }
+            //     var loading = $(this).find('.layui-icon');
+            //     if (loading.is(":visible")) return;
+            //     loading.show();
+            //     $.post(ctx + 'regist', data.field, function (r) {
+            //         if (r.code === 200) {
+            //             layer.msg('注册成功，请登录');
+            //             loading.hide();
+            //             $view.find('#login-href').trigger('click');
+            //         } else {
+            //             layer.msg(r.message);
+            //             loading.hide();
+            //         }
+            //     });
+            //     return false;
+            // });
 
             function initCode() {
                 // $view.find('#codeimg').attr("src", ctx + "images/captcha?data=" + new Date().getTime());

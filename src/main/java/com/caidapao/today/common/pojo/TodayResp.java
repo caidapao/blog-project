@@ -19,6 +19,32 @@ public class TodayResp {
         this.isSuccess = isSuccess;
     }
 
+    public TodayResp(boolean isSuccess,Object data) {
+        this.isSuccess = isSuccess;
+        this.data = data;
+    }
+
+    public TodayResp(boolean isSuccess,String code) {
+        this.isSuccess = isSuccess;
+        this.code = code;
+    }
+
+    public TodayResp(boolean isSuccess, String code, String msg) {
+        this.isSuccess = isSuccess;
+        this.code = code;
+        this.msg = msg;
+    }
+
+    /**
+     * 适配异常枚举
+     * @param errorCode 异常枚举
+     */
+    public TodayResp(ErrorCode errorCode) {
+        this.isSuccess = false;
+        this.code = errorCode.getCode();
+        this.msg = errorCode.getErrorMsg();
+    }
+
     public boolean isSuccess() {
         return isSuccess;
     }

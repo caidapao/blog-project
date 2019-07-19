@@ -9,10 +9,6 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
-import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
-
-import javax.sql.DataSource;
 
 /**
  * Created by caidapao on 2019/7/14
@@ -27,23 +23,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private TodayCustomAuthenticationProvider todayCustomAuthenticationProvider;
     @Autowired
     private TodayUserDetailService todayUserDetailService;
+    @Autowired
+    private TodayAuthenticationSuccessHandler todayAuthenticationSuccessHandler;
+    @Autowired
+    private TodayAuthenticationFailureHandler todayAuthenticationFailureHandler;
 
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        String[] matchers = {"/","/login", "/blog/**","/images/captcha/**"};
+        String[] matchers = {"/", "/login", "/blog/**", "/images/captcha/**"};
         http.formLogin() //  定义当需要用户登录时候，转到的登录页面。
-                    .loginPage("/login") // 设置登录页面
-                    .loginProcessingUrl("/form/login")
-                    .successForwardUrl("/index")
-                    .and()
+                .loginPage("/login") // 设置登录页面
+                .loginProcessingUrl("/login/action")
+                .successForwardUrl("/index")
+                .successHandler(todayAuthenticationSuccessHandler)
+                .failureHandler(todayAuthenticationFailureHandler)
+                .and()
                 .authorizeRequests() // 定义哪些URL需要被保护、哪些不需要被保护
-                    .antMatchers(matchers).permitAll() // 设置公开页面
-                    .anyRequest()  //任何请求，登录授权后可访问
-                    .authenticated()
-                    .and()
+                .antMatchers(matchers).permitAll() // 设置公开页面
+                .anyRequest()  //任何请求，登录授权后可访问
+                .authenticated()
+                .and()
                 .csrf()
-                    .disable(); // 都需要认证
+                .disable(); // 暂时关闭
     }
 
     @Override
@@ -52,12 +54,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
-//    @Autowired
-//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication().passwordEncoder(passwordEncoder())
-//                .withUser("caidapao").password(passwordEncoder().encode("123456")).roles("USER");
-//    }
-
     @Override
     public void configure(WebSecurity web) {
         //解决静态资源被拦截的问题
@@ -65,8 +61,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder(4){
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder(4) {
             @Override
             public String encode(CharSequence rawPassword) {
                 return rawPassword.toString();

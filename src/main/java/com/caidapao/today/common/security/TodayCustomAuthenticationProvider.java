@@ -5,12 +5,12 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 
 /**
+ * 可以自定义登录是否成功。暂时没用到
  * Created by caidapao on 2019-7-17
  * Time 19:33
  * address https://today.caidapao.com
@@ -31,7 +31,6 @@ public class TodayCustomAuthenticationProvider implements AuthenticationProvider
             return null;
         }
     }
-
 
 
     @Override
