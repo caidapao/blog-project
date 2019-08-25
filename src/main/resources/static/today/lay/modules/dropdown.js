@@ -1,4 +1,5 @@
 layui.define(['jquery'], function (exports) {
+    console.log("============dropdown.js============");
     var $ = layui.jquery;
     var CLS_DROPDOWN = 'layui-dropdown';
     var CLS_DROPDOWN_RIGHT = 'layui-dropdown-direright';

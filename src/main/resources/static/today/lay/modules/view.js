@@ -7,6 +7,7 @@ layui
     .define(
         ['jquery', 'laytpl', 'element', 'form', 'loadBar', 'dropdown'],
         function (exports) {
+            console.log("============view.js============");
             var $ = layui.jquery;
             var laytpl = layui.laytpl;
             var conf = layui.conf;

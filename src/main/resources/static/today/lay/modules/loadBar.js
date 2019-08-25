@@ -1,4 +1,5 @@
 layui.define(['jquery'], function (exports) {
+    console.log("============loadBar.js============");
     var $ = layui.jquery;
     var self = {
         elem: null,

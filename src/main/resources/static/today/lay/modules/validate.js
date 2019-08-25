@@ -1,5 +1,6 @@
 // 定义常用的校验，常用的正则 https://www.open-open.com/code/view/1430625516632
 layui.define(['jquery'], function (exports) {
+    console.log("============validate.js============");
     var $ = layui.jquery;
     exports('validate', {
         username: function (value, item) {

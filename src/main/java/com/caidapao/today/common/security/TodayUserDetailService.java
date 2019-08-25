@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- * 登录成功后，从数据库load详细的用户信息
+ * 从数据库load详细的用户信息
  * Created by caidapao on 2019-7-17
  * Time 16:40
  * address https://today.caidapao.com

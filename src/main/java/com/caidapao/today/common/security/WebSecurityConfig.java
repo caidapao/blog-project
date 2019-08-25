@@ -31,9 +31,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        String[] matchers = {"/", "/login", "/blog/**", "/images/captcha/**"};
+        String[] matchers = {"/", "/view/login", "/blog/**", "/images/captcha/**"};
         http.formLogin() //  定义当需要用户登录时候，转到的登录页面。
-                .loginPage("/login") // 设置登录页面
+                .loginPage("/view/login") // 设置登录页面
                 .loginProcessingUrl("/login/action")
                 .successForwardUrl("/index")
                 .successHandler(todayAuthenticationSuccessHandler)

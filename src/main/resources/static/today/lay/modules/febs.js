@@ -3,13 +3,13 @@ layui.extend({
     api: 'lay/modules/api',
     view: 'lay/modules/view'
 }).define(['conf', 'view', 'api', 'jquery', 'table'], function (exports) {
-    POPUP_DATA = {};
+    console.log("============febs.js============");
+    var POPUP_DATA = {};
     var conf = layui.conf;
     var layuiTable = layui.table;
     var view = layui.view;
     var element = layui.element;
     var $ = layui.jquery;
-    var $bread = $('#febs-layout .febs-breadcrumb');
 
     layui.extend(conf.extend);
     var self = {};
