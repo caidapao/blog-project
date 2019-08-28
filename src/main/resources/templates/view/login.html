@@ -7,11 +7,11 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <base href="/">
-    <link rel="stylesheet" th:href="@{layui/css/layui.css(t=2)}" media="all">
-    <link rel="stylesheet" th:href="@{today/css/febs.css(t=2)}" media="all">
-    <link rel="stylesheet" th:href="@{today/css/login.css(t=2)}" media="all">
-    <link rel="icon" th:href="@{today/images/favicon.ico}" type="image/x-icon"/>
+<!--    <base th:href="${#request.getContextPath()}+'/'">-->
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css(t=2)}" media="all">
+    <link rel="stylesheet" th:href="@{/today/css/febs.css(t=2)}" media="all">
+    <link rel="stylesheet" th:href="@{/today/css/login.css(t=2)}" media="all">
+    <link rel="icon" th:href="@{/today/images/favicon.ico}" type="image/x-icon"/>
 </head>
 <body>
 <div id="febs-login" lay-title="登录">
@@ -105,7 +105,7 @@
         </div>
     </div>
 </div>
-<script th:src="@{layui/layui.js}"></script>
+<script th:src="@{/layui/layui.js}"></script>
 <script th:inline="javascript">
     var ctx = [[@{/}]];
 
@@ -131,7 +131,8 @@
 
                 $.post(ctx + 'login/action', data.field, function (r) {
                     if (r.success) {
-                        location.href = ctx + 'index';
+                        debugger;
+                        location.href = ctx + 'index/main';
                     } else {
                         layer.msg(r.msg);
                         initCode();

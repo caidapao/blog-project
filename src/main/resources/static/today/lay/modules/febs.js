@@ -1,5 +1,5 @@
 layui.extend({
-    conf: 'config',
+    conf: '../../today/lay/config',
     api: 'lay/modules/api',
     view: 'lay/modules/view'
 }).define(['conf', 'view', 'api', 'jquery', 'table'], function (exports) {

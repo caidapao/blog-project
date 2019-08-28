@@ -12,15 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * address https://today.caidapao.com
  */
 @Controller
-@RequestMapping("view")
-public class ViewController {
+@RequestMapping("/index")
+public class IndexController {
 
-    @GetMapping(value = "/login")
-    public String login() {
-        return "view/login";
-    }
-
-    @GetMapping("/index")
+    @GetMapping("/main")
     public String index(Authentication authentication, Model model) {
         model.addAttribute("user",authentication.getPrincipal());
         return "view/index";

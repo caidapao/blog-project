@@ -7,16 +7,16 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" th:href="@{layui/css/layui.css}" media="all">
-    <link rel="stylesheet" th:href="@{today/css/febs.css}" media="all">
-    <link rel="stylesheet" th:href="@{today/css/eleTree.css}" media="all">
-    <link rel="stylesheet" th:href="@{today/css/apexcharts.min.css}" media="all">
-    <link rel="stylesheet" th:href="@{today/css/formSelects-v4.css}" media="all">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/today/css/febs.css}" media="all">
+    <link rel="stylesheet" th:href="@{/today/css/eleTree.css}" media="all">
+    <link rel="stylesheet" th:href="@{/today/css/apexcharts.min.css}" media="all">
+    <link rel="stylesheet" th:href="@{/today/css/formSelects-v4.css}" media="all">
     <!-- 高德地图，key为演示作用，请勿滥用-->
     <script src="https://webapi.amap.com/maps?v=1.4.15&key=0e8a587317998a5e03cf608649b229d6&plugin=AMap.Autocomplete"></script>
-    <link rel="icon" th:href="@{today/images/favicon.ico}" type="image/x-icon"/>
+    <link rel="icon" th:href="@{/today/images/favicon.ico}" type="image/x-icon"/>
 
-    <script th:src="@{layui/layui.js}"></script>
+    <script th:src="@{/layui/layui.js}"></script>
     <style>
         #febs-index .welcome-info {
             border: 1px solid #f1f1f1;
@@ -151,7 +151,7 @@
     <div class="layui-side" id="app-sidebar">
         <div class="layui-side-scroll">
             <div class="layui-logo" style="cursor: pointer">
-                <img data-th-src="@{today/images/logo.png}">
+                <img data-th-src="@{/today/images/logo.png}">
                 <span>FEBS 权限系统</span>
             </div>
             <script
@@ -204,7 +204,7 @@
                                 <div class="layui-col-md6 layui-col-sm12 layui-col-xs12">
                                     <div class="layui-row welcome-info-wrapper">
                                         <div class="user-header">
-                                            <img alt="头像" id="user-avatar" data-th-src="@{today/images/avatar/empty.jpg}">
+                                            <img alt="头像" id="user-avatar" data-th-src="@{/today/images/avatar/empty.jpg}">
                                         </div>
                                         <div class="user-info">
                                             <div class="layui-row">
@@ -409,7 +409,7 @@
             treeSelect: 'lay/extends/treeSelect',
             apexcharts: 'lay/extends/apexcharts.min',
             eleTree: 'lay/extends/eleTree'
-        }).use(['index']);
+        }).use(['../../today/index']);
 
 </script>
 
