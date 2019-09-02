@@ -14,7 +14,7 @@
     <link rel="icon" th:href="@{/today/images/favicon.ico}" type="image/x-icon"/>
 </head>
 <body>
-<div id="febs-login" lay-title="登录">
+<div id="today-login" lay-title="登录">
     <div class="login-wrap">
         <div class="layui-container">
             <div class="layui-row">
@@ -114,7 +114,7 @@
         }).use(['form', 'layer', 'validate'], function (form, layer) {
             var $ = layui.jquery,
                 validate = layui.validate,
-                $view = $('#febs-login'),
+                $view = $('#today-login'),
                 type = 'login',
                 $loginDiv = $view.find('#login-div'),
                 $registDiv = $view.find('#regist-div');

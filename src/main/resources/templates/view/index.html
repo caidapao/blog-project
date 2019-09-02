@@ -89,6 +89,7 @@
         }
     </style>
 </head>
+<div id="today"></div>
 
 <div class="layui-layout layui-layout-admin" id="febs-layout">
     <div class="layui-header layui-anim febs-anim-down" id="app-header">
@@ -194,7 +195,7 @@
         </div>
     </div>
     <!-- 主体内容 -->
-    <div class="layui-body" id="febs-body">
+    <div class="layui-body" id="today-body">
         <div class="layui-fluid layui-anim febs-anim-up" id="febs-index" lay-title="系统首页">
             <div class="layui-row layui-col-space8 febs-container">
                 <div class="layui-col-md12 layui-col-sm12 layui-col-xs12">
@@ -397,11 +398,9 @@
 <script th:inline="javascript">
     var ctx = [[@{/}]];
         var currentUser = [[${user}]];
-        currentUser.roleSet = [[${roles}]];
-        currentUser.permissionSet = [[${permissions}]];
 
         layui.config({
-            base: './today/',
+            base: '/today/',
             debug: true
         }).extend({
             request: 'lay/modules/request',
@@ -409,7 +408,7 @@
             treeSelect: 'lay/extends/treeSelect',
             apexcharts: 'lay/extends/apexcharts.min',
             eleTree: 'lay/extends/eleTree'
-        }).use(['../../today/index']);
+        }).use(['index']);
 
 </script>
 

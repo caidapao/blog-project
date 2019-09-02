@@ -1,7 +1,7 @@
 layui.define(function(exports) {
   exports('conf', {
-    container: 'febs',
-    containerBody: 'febs-body',
+    container: 'today',
+    containerBody: 'today-body',
     v: '2.0',
     base: '',
     css: '',

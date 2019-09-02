@@ -1,9 +1,9 @@
 layui.extend({
-    conf: '../../today/lay/config',
+    conf: 'config',
     api: 'lay/modules/api',
     view: 'lay/modules/view'
 }).define(['conf', 'view', 'api', 'jquery', 'table'], function (exports) {
-    console.log("============febs.js============");
+    console.log("============today.js============");
     var POPUP_DATA = {};
     var conf = layui.conf;
     var layuiTable = layui.table;
