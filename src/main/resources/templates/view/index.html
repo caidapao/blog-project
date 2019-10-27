@@ -192,6 +192,89 @@
                     {{# }) }}
                 </ul>
             </script>
+
+            <ul class="layui-nav layui-nav-tree" lay-filter="febs-sidebar" lay-shrink="all" is-template="true">
+                <li class="layui-nav-item layui-nav-itemed"><a lay-href="" target="" title="系统管理">
+                    <i class="layui-icon layui-icon-setting"></i>
+                    系统管理 <span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a style="padding-left:50px" target="" lay-href="/system/user">用户管理</a></dd>
+                        <dd><a style="padding-left:50px" target="" lay-href="/system/role">角色管理</a></dd>
+                        <dd><a style="padding-left:50px" target="" lay-href="/system/menu">菜单管理</a></dd>
+                        <dd><a style="padding-left:50px" target="" lay-href="/system/dept">部门管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a lay-href="" target="" title="系统监控">
+                    <i class="layui-icon layui-icon-alert"></i>
+                    系统监控 <span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a style="padding-left:50px" target="" lay-href="/monitor/online">在线用户</a></dd>
+                        <dd><a style="padding-left:50px" target="" lay-href="/monitor/log">系统日志</a></dd>
+                        <dd><a style="padding-left:50px" target="" lay-href="/monitor/loginlog">登录日志</a></dd>
+                        <dd><a style="padding-left:50px" target="" lay-href="/monitor/redis/info">Redis监控</a></dd>
+                        <dd><a style="padding-left:50px" target="" lay-href="/monitor/redis/terminal">Redis终端</a></dd>
+                        <dd><a style="padding-left:50px" target="" lay-href="/monitor/httptrace">请求追踪</a></dd>
+                        <dd><a style="padding-left:50px" target="" lay-href="">系统信息<span class="layui-nav-more"></span></a>
+                            <dl class="layui-nav-child">
+                                <dd><a style="padding-left:70px" target="" lay-href="/monitor/jvm">JVM信息</a></dd>
+                                <dd><a style="padding-left:70px" target="" lay-href="/monitor/tomcat">Tomcat信息</a></dd>
+                                <dd><a style="padding-left:70px" target="" lay-href="/monitor/server">服务器信息</a></dd>
+                            </dl>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a lay-href="" target="" title="任务调度"><i
+                        class="layui-icon layui-icon-time-circle"></i>任务调度 <span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a style="padding-left:50px" target="" lay-href="/job/job">定时任务</a></dd>
+                        <dd><a style="padding-left:50px" target="" lay-href="/job/log">调度日志</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a lay-href="" target="" title="代码生成"><i class="layui-icon layui-icon-verticalright"></i>代码生成 <span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a style="padding-left:50px" target="" lay-href="/generator/configure">生成配置</a></dd>
+                        <dd><a style="padding-left:50px" target="" lay-href="/generator/generator">代码生成</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a lay-href="" target="" title="其他模块"><i class="layui-icon layui-icon-gift"></i>其他模块 <span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a style="padding-left:50px" target="" lay-href="">FEBS组件<span
+                                class="layui-nav-more"></span></a>
+                            <dl class="layui-nav-child">
+                                <dd><a style="padding-left:70px" target="" lay-href="/others/febs/form">表单组件</a></dd>
+                                <dd><a style="padding-left:70px" target="" lay-href="/others/febs/form/group">表单组合</a>
+                                </dd>
+                                <dd><a style="padding-left:70px" target="" lay-href="/others/febs/tools">FEBS工具</a></dd>
+                                <dd><a style="padding-left:70px" target="" lay-href="/others/febs/icon">系统图标</a></dd>
+                                <dd><a style="padding-left:70px" target="" lay-href="/others/febs/others">其他组件</a></dd>
+                            </dl>
+                        </dd>
+                        <dd><a style="padding-left:50px" target="" lay-href="">Apex图表<span
+                                class="layui-nav-more"></span></a>
+                            <dl class="layui-nav-child">
+                                <dd><a style="padding-left:70px" target="" lay-href="/others/apex/line">线性图表</a></dd>
+                                <dd><a style="padding-left:70px" target="" lay-href="/others/apex/area">面积图表</a></dd>
+                                <dd><a style="padding-left:70px" target="" lay-href="/others/apex/column">柱形图表</a></dd>
+                                <dd><a style="padding-left:70px" target="" lay-href="/others/apex/radar">雷达图表</a></dd>
+                                <dd><a style="padding-left:70px" target="" lay-href="/others/apex/bar">条形图表</a></dd>
+                                <dd><a style="padding-left:70px" target="" lay-href="/others/apex/mix">混合图表</a></dd>
+                            </dl>
+                        </dd>
+                        <dd><a style="padding-left:50px" target="" lay-href="/others/map">高德地图</a></dd>
+                        <dd><a style="padding-left:50px" target="" lay-href="/others/eximport">导入导出</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a lay-href="" target="" title="其他模块"><i class="layui-icon layui-icon-gift"></i>其他模块 <span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a style="padding-left:50px" target="" lay-href="/article/articleAll">所有文章</a></dd>
+                        <dd><a style="padding-left:50px" target="" lay-href="/article/createArticle">创作文章</a></dd>
+                        <dd><a style="padding-left:50px" target="" lay-href="/article/category">文章分类</a></dd>
+                        <dd><a style="padding-left:50px" target="" lay-href="/article/tag">文章</a></dd>
+                    </dl>
+                </li>
+                <span class="layui-nav-bar" style="top: 400px; height: 0px; opacity: 0;"></span>
+            </ul>
         </div>
     </div>
     <!-- 主体内容 -->
