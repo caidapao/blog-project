@@ -1,5 +1,6 @@
 package com.caidapao.today.system.controller;
 
+import com.caidapao.today.system.entity.TodayUser;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +18,8 @@ public class IndexController {
 
     @GetMapping("/main")
     public String index(Authentication authentication, Model model) {
-        model.addAttribute("user",authentication.getPrincipal());
+        TodayUser todayUser = (TodayUser) authentication.getPrincipal();
+        model.addAttribute("user",todayUser);
         return "view/index";
     }
 

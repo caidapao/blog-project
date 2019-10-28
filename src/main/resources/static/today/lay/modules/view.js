@@ -74,18 +74,14 @@ layui
                             }
                         })
                     } else {
-                        renderTemplate(
-                            tem,
-                            {},
-                            self.ie8
-                                ? function (elem) {
+                        renderTemplate(tem, {}, self.ie8 ?
+                            function (elem) {
                                     if (elem[0] && elem[0].tagName !== 'LINK') return;
                                     container.hide();
                                     elem.load(function () {
                                         container.show()
                                     })
-                                }
-                                : null
+                                } : null
                         );
                         if (done) new Function(done)()
                     }

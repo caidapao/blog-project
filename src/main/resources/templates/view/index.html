@@ -155,6 +155,7 @@
                 <img data-th-src="@{/today/images/logo.png}">
                 <span>FEBS 权限系统</span>
             </div>
+            <!-- 侧边菜单模板 -->
             <script
                     type="text/html"
                     template
@@ -192,11 +193,10 @@
                     {{# }) }}
                 </ul>
             </script>
-
+            <!-- 菜单 -->
             <ul class="layui-nav layui-nav-tree" lay-filter="febs-sidebar" lay-shrink="all" is-template="true">
-                <li class="layui-nav-item layui-nav-itemed"><a lay-href="" target="" title="系统管理">
-                    <i class="layui-icon layui-icon-setting"></i>
-                    系统管理 <span class="layui-nav-more"></span></a>
+                <li class="layui-nav-item"><a lay-href="" target="" title="系统管理">
+                    <i class="layui-icon layui-icon-setting"></i>系统管理 <span class="layui-nav-more"></span></a>
                     <dl class="layui-nav-child">
                         <dd><a style="padding-left:50px" target="" lay-href="/system/user">用户管理</a></dd>
                         <dd><a style="padding-left:50px" target="" lay-href="/system/role">角色管理</a></dd>
@@ -204,10 +204,8 @@
                         <dd><a style="padding-left:50px" target="" lay-href="/system/dept">部门管理</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item">
-                    <a lay-href="" target="" title="系统监控">
-                    <i class="layui-icon layui-icon-alert"></i>
-                    系统监控 <span class="layui-nav-more"></span></a>
+                <li class="layui-nav-item"><a lay-href="" target="" title="系统监控">
+                    <i class="layui-icon layui-icon-alert"></i>系统监控 <span class="layui-nav-more"></span></a>
                     <dl class="layui-nav-child">
                         <dd><a style="padding-left:50px" target="" lay-href="/monitor/online">在线用户</a></dd>
                         <dd><a style="padding-left:50px" target="" lay-href="/monitor/log">系统日志</a></dd>
@@ -265,12 +263,12 @@
                         <dd><a style="padding-left:50px" target="" lay-href="/others/eximport">导入导出</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a lay-href="" target="" title="其他模块"><i class="layui-icon layui-icon-gift"></i>其他模块 <span class="layui-nav-more"></span></a>
+                <li class="layui-nav-item"><a lay-href="" target="" title="文章模块"><i class="layui-icon layui-icon-gift"></i>文章模块 <span class="layui-nav-more"></span></a>
                     <dl class="layui-nav-child">
                         <dd><a style="padding-left:50px" target="" lay-href="/article/articleAll">所有文章</a></dd>
                         <dd><a style="padding-left:50px" target="" lay-href="/article/createArticle">创作文章</a></dd>
                         <dd><a style="padding-left:50px" target="" lay-href="/article/category">文章分类</a></dd>
-                        <dd><a style="padding-left:50px" target="" lay-href="/article/tag">文章</a></dd>
+                        <dd><a style="padding-left:50px" target="" lay-href="/article/tag">文章标签</a></dd>
                     </dl>
                 </li>
                 <span class="layui-nav-bar" style="top: 400px; height: 0px; opacity: 0;"></span>
@@ -480,6 +478,7 @@
 
 <script th:inline="javascript">
     var ctx = [[@{/}]];
+
         var currentUser = [[${user}]];
 
         layui.config({
