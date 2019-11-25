@@ -132,7 +132,7 @@
                 $.post(ctx + 'login/action', data.field, function (r) {
                     if (r.success) {
                         debugger;
-                        location.href = ctx + 'index/main';
+                        location.href = ctx + 'index';
                     } else {
                         layer.msg(r.msg);
                         initCode();

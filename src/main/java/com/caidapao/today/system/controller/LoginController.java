@@ -2,6 +2,7 @@ package com.caidapao.today.system.controller;
 
 import com.caidapao.today.common.util.CaptchaUtil;
 import com.wf.captcha.Captcha;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  * Time 11:36
  * address https://today.caidapao.com
  */
+@Slf4j
 @Controller
 @RequestMapping
 public class LoginController {
